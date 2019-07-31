@@ -1,0 +1,71 @@
+@model IEnumerable<Imenik.Models.Kontakti> 
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Kontakti</h1>
+
+<p>
+    <a asp-action="Create">Dodaj novi kontakt</a>
+</p>
+
+<form asp-controller="Imenik" asp-action="Index">
+    <p>
+        Pretraži po imenu: <input type="text" name="SearchString">
+        <input type="submit" value="Traži" /><input type="submit" value="Odustani" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.prezime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.grad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.opis)
+            </th>
+            <th>
+                svi brojevi
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prezime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.grad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.opis)
+            </td>
+            <td>
+            @foreach (var i in item.telefon){
+                <div>
+                    @Html.DisplayFor(modelItem => i.broj)
+                </div>
+            }
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Uredi</a>
+                <a asp-action="Details" asp-route-id="@item.id">Detalji</a>
+                <a asp-action="Delete" asp-route-id="@item.id">Izbriši</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

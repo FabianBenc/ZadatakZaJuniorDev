@@ -1,0 +1,90 @@
+@model Imenik.Models.Kontakti
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalji</h1>
+<style>
+table, td, th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+img{
+float:right;
+
+}
+</style>
+
+<div>
+    <img src="@Html.DisplayFor(model => model.slika)" height=300px width=300px /> 
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.prezime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.prezime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.grad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.grad)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.opis)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.opis)
+        </dd>
+    </dl>
+    
+</div><br>
+<br>
+<table>
+    <thead>
+        <tr>
+            <th>
+                Broj
+            </th>
+            <th>
+                Opis
+            </th>
+            <th>
+                Tip
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var i in Model.telefon){
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => i.broj)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => i.opis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => i.tip)
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.id">Uredi</a> |
+    <a asp-action="Index">Natrag na Kontakte</a>
+</div>

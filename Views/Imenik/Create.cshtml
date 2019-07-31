@@ -1,0 +1,180 @@
+@model Imenik.Models.Kontakti
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Dodaj</h1>
+
+<h4>Kontakti</h4>
+<hr />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<form runat="server">
+  <input type='file' id="imgInp" />
+  <img id="blah" src="#" alt="Vaša slika"  height=300px width=300px/>
+</form>
+
+<style>
+  .container {
+    width: 500px;
+    clear: both;
+  }
+
+  .container input {
+  width: 100%;
+  clear: both;
+  }
+</style>
+
+<script>
+
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        
+        reader.onload = function(e) {
+          $('#blah').attr('src', e.target.result);
+        }
+        
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $("#imgInp").change(function() {
+      readURL(this);
+    });
+    
+    var brFormi = 0;
+    var brojForme = [0];
+
+    function obrisi(forma){
+      forma = "." + forma;
+      //console.log(forma);
+      $("div").remove(forma);
+    }
+
+    function dodajBroj(){
+      
+      brFormi++;
+
+      var broj = "broj" + brFormi;
+      var opis = "opisB" + brFormi;
+      var tip = "tip" + brFormi;
+      var forma = "forma" + brFormi;
+      
+      $('.dodajBroj').append(`
+      <div class="${forma}">
+         <input type="button" onclick="obrisi('${forma}')" value="Obriši" class="tipka"/>
+        <div class="form-group">
+          Broj <input class="${broj}"> <br>
+        </div>
+        <div class="form-group">
+          Opis Broja<input class="${opis}"> <br>
+        </div>
+        <div class="form-group">
+          Tip <input class="${tip}"> <br>
+        </div>
+      </div>`);
+      brojForme.push(brFormi);
+      console.log(brojForme);
+    }
+
+    function dodajUBazu(){
+        var osoba = {
+            ime: $('.ime').val(),
+            prezime: $('.prezime').val(),
+            grad: $('.grad').val(),
+            opis: $('.opisO').val(),
+            slika: $("#blah").attr("src")
+        };
+
+        /*var telBroj = {
+            broj: $('.broj').val(),
+            opis: $('.opisB').val(),
+            tip: $('.tip').val()
+        }*/
+
+        var telBroj = [];
+
+        brojForme.forEach(el => {
+          
+          var broj = ".broj" + el;
+          var opis = ".opisB" + el;
+          var tip = ".tip" + el;
+
+          telBroj[el] = {
+            broj: $(broj).val(),
+            opis: $(opis).val(),
+            tip: $(tip).val()
+          }
+        });
+
+        var data = {};
+        data.o = osoba;
+        data.b = telBroj;
+
+        console.log(osoba);
+        console.log(telBroj);
+        console.log(data);
+
+        console.log(JSON.stringify(data));
+
+        $.ajax({
+            url: '/Imenik/dodaj',
+            type: 'POST',
+            data: JSON.stringify(data),
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            error: function(xhr) { alert('Uspješno ste dodali novi kontakt'); },
+            success: function (result) { console.log(result); },
+            async: true,
+            processData: false
+        });
+
+        console.log(osoba);
+        console.log(telBroj);
+    }
+
+</script>
+
+<div class="row">
+    <div class="col-md-4">
+      <form method="post">
+        <div class="container dodajBroj">
+            <div class="form-group">
+              Ime <input class="ime"> <br>
+            </div>
+            <div class="form-group">
+              Prezime <input class="prezime"> <br>
+            </div>
+            <div class="form-group">
+              Grad <input class="grad"> <br>
+            </div>
+            <div class="form-group">
+              Opis Osobe<input class="opisO"> <br>
+            </div>
+            <div class="form-group">
+              Broj <input class="broj0"> <br>
+            </div>
+            <div class="form-group">
+              Opis Broja<input class="opisB0"> <br>
+            </div>
+            <div class="form-group">
+              Tip <input class="tip0"> <br>
+            </div>
+        </div>
+        
+      </form>
+            <input type="button" onclick="dodajBroj()" value="Dodaj 2. broj" class="tipka"/>
+            <input type="button" onclick="dodajUBazu()" value="Dodaj kontakt" class="tipka"/>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Natrag na Kontakte</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
