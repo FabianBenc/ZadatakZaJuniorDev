@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Fabian\\Desktop\\Gotovo\\volimoZnidarica\\zadatakZaProgramere.csproj": {}
+    "c:\\Users\\iuono\\CookieExample\\ZadatakZaJuniorDev\\zadatakZaProgramere.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Fabian\\Desktop\\Gotovo\\volimoZnidarica\\zadatakZaProgramere.csproj": {
+    "c:\\Users\\iuono\\CookieExample\\ZadatakZaJuniorDev\\zadatakZaProgramere.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Fabian\\Desktop\\Gotovo\\volimoZnidarica\\zadatakZaProgramere.csproj",
+        "projectUniqueName": "c:\\Users\\iuono\\CookieExample\\ZadatakZaJuniorDev\\zadatakZaProgramere.csproj",
         "projectName": "zadatakZaProgramere",
-        "projectPath": "C:\\Users\\Fabian\\Desktop\\Gotovo\\volimoZnidarica\\zadatakZaProgramere.csproj",
-        "packagesPath": "C:\\Users\\Fabian\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Fabian\\Desktop\\Gotovo\\volimoZnidarica\\obj\\",
+        "projectPath": "c:\\Users\\iuono\\CookieExample\\ZadatakZaJuniorDev\\zadatakZaProgramere.csproj",
+        "packagesPath": "C:\\Users\\iuono\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\iuono\\CookieExample\\ZadatakZaJuniorDev\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Fabian\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\iuono\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -68,10 +65,16 @@
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
