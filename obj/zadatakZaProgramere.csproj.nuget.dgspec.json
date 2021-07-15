@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\iuono\\CookieExample\\ZadatakZaJuniorDev\\zadatakZaProgramere.csproj": {}
+    "C:\\Users\\iuono\\CookieExample\\ZadatakZaJuniorDev\\zadatakZaProgramere.csproj": {}
   },
   "projects": {
-    "c:\\Users\\iuono\\CookieExample\\ZadatakZaJuniorDev\\zadatakZaProgramere.csproj": {
+    "C:\\Users\\iuono\\CookieExample\\ZadatakZaJuniorDev\\zadatakZaProgramere.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\iuono\\CookieExample\\ZadatakZaJuniorDev\\zadatakZaProgramere.csproj",
+        "projectUniqueName": "C:\\Users\\iuono\\CookieExample\\ZadatakZaJuniorDev\\zadatakZaProgramere.csproj",
         "projectName": "zadatakZaProgramere",
-        "projectPath": "c:\\Users\\iuono\\CookieExample\\ZadatakZaJuniorDev\\zadatakZaProgramere.csproj",
+        "projectPath": "C:\\Users\\iuono\\CookieExample\\ZadatakZaJuniorDev\\zadatakZaProgramere.csproj",
         "packagesPath": "C:\\Users\\iuono\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\iuono\\CookieExample\\ZadatakZaJuniorDev\\obj\\",
+        "outputPath": "C:\\Users\\iuono\\CookieExample\\ZadatakZaJuniorDev\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\iuono\\AppData\\Roaming\\NuGet\\NuGet.Config",
